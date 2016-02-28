@@ -2,6 +2,9 @@
 
 This App will help you learn about Rails and Security.
 
+This is the last Rails 3.2 version,
+it is not used any more.
+
 ## Installation
 
 Two files are not available via the git repository,
