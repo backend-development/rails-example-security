@@ -1,0 +1,22 @@
+AllCops:  
+  Include:    
+    - '**/Rakefile'    
+    - '**/config.ru'  
+  Exclude:    
+    - 'bin/**/*'    
+    - 'db/**/*'    
+    - 'config/**/*'    
+    - 'script/**/*'    
+    - 'spec/**/*'
+
+AccessModifierIndentation:  
+  EnforcedStyle: outdent
+
+LineLength:  
+  Max: 125
+
+MethodLength:  
+  Max: 15
+
+Metrics/AbcSize:    
+  Max: 20
