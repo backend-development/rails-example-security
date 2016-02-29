@@ -1,6 +1,7 @@
 # blog articles
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :auth_user, only: [:new, :create]
 
   # GET /articles
   # GET /articles.json
@@ -25,7 +26,9 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    p = article_params
+    p[:user_id] = current_user.id
+    @article = Article.new(p)
 
     respond_to do |format|
       if @article.save
@@ -72,5 +75,13 @@ private
   # Never trust parameters from the scary internet, only allow the white list through.
   def article_params
     params.require(:article).permit(:title, :description)
+  end
+
+  def auth_user
+    unless current_user
+      render status: :forbidden,
+             html:   '<h1>Error</h1><p>only for logged in users</p>'.html_safe,
+             layout: 'application'
+    end
   end
 end

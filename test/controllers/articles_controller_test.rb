@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
+  fixtures :users
+  fixtures :articles
+
   setup do
     @article = articles(:one)
+    @admin   = users(:one)
+    @user    = users(:two)
   end
 
   test 'should get index' do
@@ -10,12 +15,19 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should get new' do
+  test 'public should not get new' do
+    get new_article_url
+    assert_response :forbidden
+  end
+
+  test 'user should get new' do
+    sign_in(@user)
     get new_article_url
     assert_response :success
   end
 
   test 'should create article' do
+    sign_in(@user)
     assert_difference('Article.count') do
       post articles_url, params: { article: { description: @article.description, title: @article.title } }
     end
@@ -31,11 +43,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   test 'should get edit' do
     get edit_article_url(@article)
     assert_response :success
-  end
-
-  test 'should update article' do
-    patch article_url(@article), params: { article: { description: @article.description, title: @article.title } }
-    assert_redirected_to article_path(@article)
   end
 
   test 'should destroy article' do
