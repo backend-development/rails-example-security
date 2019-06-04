@@ -9,7 +9,7 @@ require("@rails/activestorage").start();
 require("channels");
 require("material-design-lite/material.min.css");
 require("material-design-lite/material.min.js");
-// require("material-design-icons/css-sprite/sprite-av-black.css");
+require("material-icons/iconfont/material-icons.css");
 
 document.addEventListener("turbolinks:load", function() {
   componentHandler.upgradeDom();

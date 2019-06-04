@@ -9,8 +9,10 @@
     </p>
     <%= @article.description %>
   </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <%= link_to 'Edit', edit_article_path(@article), class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
-    <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
-  </div>
+  <% if can? :manage, @article %>
+    <div class="mdl-card__actions mdl-card--border">
+      <%= link_to 'Edit', edit_article_path(@article), class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
+      <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
+    </div>
+  <% end %>
 </div>

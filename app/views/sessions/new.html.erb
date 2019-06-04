@@ -1,13 +1,21 @@
-<h1>Log in</h1>
+<h1>Log In</h1>
 
 
 
-<%= form_tag(sessions_path) do %>
+<%= form_tag(sessions_path, method: :post, local: true) do %>
   
-    <%= text_field_tag :email, params[:email] %>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <%= text_field_tag :email, params[:email], id: 'email',  class: "mdl-textfield__input"  %>
+    <label class="mdl-textfield__label" for="email">E-Mail</label>
+  </div>
+
+
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <%= password_field_tag :password, '', id: 'password', class: "mdl-textfield__input"  %>
+    <label class="mdl-textfield__label" for="password">Password</label>
+  </div>
   
-    <%= password_field_tag :password %>
   
-    <%= submit_tag "Login" %>
+  <%= submit_tag "Login", class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
 
 <% end %>

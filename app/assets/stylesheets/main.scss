@@ -44,3 +44,17 @@ main {
 .width-100percent {
   width: 100% !important;
 }
+
+.min-width-400 {
+  min-width: 400px !important;
+  flex: 1;
+}
+
+.width-100percent .mdl-textfield {
+  width: 100% !important;
+}
+
+#article_description {
+  height: 200px;
+  background-color: white;
+}

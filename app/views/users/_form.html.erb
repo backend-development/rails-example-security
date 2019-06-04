@@ -5,7 +5,11 @@
  
     <%= form.text_field :password %>
   
+    <% if can? :manage, User %>
+
     <%= form.check_box :admin %>
+
+    <% end %>
   
     <%= form.text_field :homepage %>
   

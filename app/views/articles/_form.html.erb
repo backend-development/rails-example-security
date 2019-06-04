@@ -1,8 +1,8 @@
-<%= mdl_form_with(model: article, local: true) do |form| %>
+<%= mdl_form_with(model: article, local: true, class: 'width-100percent') do |form| %>
 
     <%= form.text_field :title %>
   
-    <%= form.text_area :description %>
+    <%= form.text_area :description  %>
  
     <%= form.submit  class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
 

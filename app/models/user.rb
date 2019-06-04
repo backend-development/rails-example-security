@@ -9,8 +9,13 @@ class User < ApplicationRecord
       return user if user && user.password == password
       nil
     end
-  
+
     def to_s
       name
     end
+
+    def admin?
+      admin
+    end
+
 end
