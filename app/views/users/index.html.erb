@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Users</h1>
+
+<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Admin</th>
+      <th>Homepage</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.password %></td>
+        <td><%= user.admin %></td>
+        <td><%= user.homepage %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+  <%= link_to new_user_path do %>
+    <i class="material-icons">+</i>
+  <% end %>
+</button>

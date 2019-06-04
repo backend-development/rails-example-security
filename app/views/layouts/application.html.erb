@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails6ExampleSecurity</title>
+    <title>Security Example App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,34 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3>Security Example App</h3>
+        </div>
+        <div class=" mdl-layout__header-row">
+          <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+            <%= link_to "Users", users_path, class: 'mdl-navigation__link' %>
+            <%= link_to "Articles", users_path, class: 'mdl-navigation__link' %>         
+          </nav>
+        </div>        
+      </header>
+      <main>
+      <% if notice.present? %>
+        <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+          <div class="mdl-snackbar__text"><%= notice %></div>
+          <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+      <% end %>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+          <%= yield %>
+        </div>
+      </div>
+      </main>
+    </div>
   </body>
 </html>

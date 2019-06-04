@@ -1,0 +1,13 @@
+<%= mdl_form_with(model: user, local: true) do |form| %>
+    <%= form.text_field :name %>
+ 
+    <%= form.text_field :email %>
+ 
+    <%= form.text_field :password %>
+  
+    <%= form.check_box :admin %>
+  
+    <%= form.text_field :homepage %>
+  
+    <%= form.submit class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+<% end %>

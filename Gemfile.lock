@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/bjelline/rails-mdl-form.git
+  revision: 9957f420adbb92ebfb608ecd9a3469c34eee66a3
+  specs:
+    mdl_form (0.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -210,6 +216,7 @@ DEPENDENCIES
   chromedriver-helper
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  mdl_form!
   puma (~> 3.11)
   rails (~> 6.0.0.beta3)
   sass-rails (~> 5.0)
