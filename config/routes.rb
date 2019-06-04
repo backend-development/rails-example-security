@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'static_pages/help'
   resources :articles
   resources :users
   get 'sign_up' => 'users#new', as: 'sign_up'  

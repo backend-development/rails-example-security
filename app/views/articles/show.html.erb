@@ -1,7 +1,16 @@
-<h1><%= @article.title %></h1>
-
-
-  <%= @article.description %>
-
-
-<p><%= link_to 'Edit', edit_article_path(@article) %></p>
+<div class="mdl-card mdl-shadow--2dp margin-bottom-40 width-100percent">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text"><%= link_to @article.title, @article, class: 'text-decoration-none color-inherit' %></h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <p>
+      <i>by <%= link_to @article.user, user_path(@article.user) %>, 
+      <%=l @article.updated_at, format: :short %></i>
+    </p>
+    <%= @article.description %>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <%= link_to 'Edit', edit_article_path(@article), class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
+    <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
+  </div>
+</div>

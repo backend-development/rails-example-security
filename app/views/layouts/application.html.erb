@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Security Example App</title>
+    <title>The Insecure Blog - an example app to learn about rails security</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
@@ -15,12 +15,13 @@
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-          <h3>Security Example App</h3>
+          <h3><%= link_to "The Insecure Blog", root_path, class: 'text-decoration-none color-white' %></h3>
         </div>
         <div class=" mdl-layout__header-row">
           <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-            <%= link_to "Users", users_path, class: 'mdl-navigation__link' %>
             <%= link_to "Articles", articles_path, class: 'mdl-navigation__link' %>         
+            <%= link_to "Users", users_path, class: 'mdl-navigation__link' %>
+            <%= link_to "Help", static_pages_help_path, class: 'mdl-navigation__link' %>
             <% if current_user %>
               Logged in as <%= current_user.name %>
               <%= link_to_unless_current "Log out", log_out_path, class: 'mdl-navigation__link' %>

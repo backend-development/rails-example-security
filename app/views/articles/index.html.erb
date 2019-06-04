@@ -1,32 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Articles</h1>
-
-<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div style="display:flex;">
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.description %></td>
-        <td><%= article.user_id %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+      <div class="mdl-card mdl-shadow--2dp margin-bottom-40 margin-right-20">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text"><%= link_to article.title, article, class: 'text-decoration-none color-inherit' %></h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          <p>
+            <i>by <%= link_to article.user, user_path(article.user) %>, 
+            <%=l article.updated_at, format: :short %></i>
+          </p>
+          <%= article.description[0,20] %>...  <%= link_to 'more', article %>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <%= link_to 'Edit', edit_article_path(article), class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
+          <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
+        </div>
+      </div>
+
+    <% end %>
+</div>
 
 <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
   <%= link_to new_article_path do %>

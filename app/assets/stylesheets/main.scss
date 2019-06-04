@@ -16,3 +16,31 @@ main {
   width: 1000px;
   margin: 10px auto;
 }
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.color-white,
+:link.color-white,
+:visited.color-white {
+  color: white;
+}
+
+.color-inherit,
+:link.color-inherit,
+:visited.color-inherit {
+  color: inherit;
+}
+
+.margin-right-20 {
+  margin-right: 20px;
+}
+
+.margin-bottom-40 {
+  margin-bottom: 40px;
+}
+
+.width-100percent {
+  width: 100% !important;
+}
