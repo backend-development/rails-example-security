@@ -1,7 +1,8 @@
 # Security Example App
 
 This "Insecure Blog" contains terrible security
-mistakes. Fix them and learn!
+mistakes. Fix them and learn!  Write your answers here
+in the README.md and hand the exercise in as a pull request.
 
 ## 1. Test for Password
 
@@ -83,5 +84,10 @@ try to forbid all `unsafe-inline` script.
 try to use `nonce` to get the (good) inline script to work again.
 
 which settings to you need in rails?
+
+### What else should you do?
+
+Which other security problems can you spot, and how can you fix them?
+Add your list right here:
 
 
