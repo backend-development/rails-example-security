@@ -11,7 +11,7 @@
             <i>by <%= link_to article.user, user_path(article.user) %>, 
             <%=l article.updated_at, format: :short %></i>
           </p>
-          <%= article.description[0,300] %>...  
+          <%=raw article.description[0,300] %>...  
         </div>
         <div class="mdl-card__actions mdl-card--border">
           <%= link_to 'More', article, class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
@@ -25,8 +25,19 @@
     <% end %>
 </div>
 
-<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+
+<script>
+function start() {
+  document.querySelector('main').classList.add('dark');
+}
+function stop() {
+  document.querySelector('main').classList.remove('dark');
+}
+</script>
+
+<button onmouseover="start()" onmouseout="stop()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
   <%= link_to new_article_path do %>
-    <i class="material-icons">add</i>
+    <i class="material-icons" >add</i>
   <% end %>
 </button>
+

@@ -9,8 +9,8 @@
 #   policy.font_src    :self, :https, :data
 #   policy.img_src     :self, :https, :data
 #   policy.object_src  :none
-#   policy.script_src  :self, :https
-#   policy.style_src   :self, :https
+#   policy.script_src  :self, :https, "http://localhost:3035", :blob
+#   policy.style_src   :self, :https, "http://localhost:3035", :blob
 #   # If you are using webpack-dev-server then specify webpack-dev-server host
 #   policy.connect_src :self, :https, "http://localhost:3035", "ws://localhost:3035" if Rails.env.development?
 
@@ -19,7 +19,7 @@
 # end
 
 # If you are using UJS then enable automatic nonce generation
-# Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
+Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
 
 # Report CSP violations to a specified URI
 # For further information see the following documentation:

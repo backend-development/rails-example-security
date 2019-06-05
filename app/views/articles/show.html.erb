@@ -7,7 +7,7 @@
       <i>by <%= link_to @article.user, user_path(@article.user) %>, 
       <%=l @article.updated_at, format: :short %></i>
     </p>
-    <%= @article.description %>
+    <%=raw @article.description %>
   </div>
   <% if can? :manage, @article %>
     <div class="mdl-card__actions mdl-card--border">
