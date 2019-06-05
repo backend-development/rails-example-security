@@ -40,8 +40,8 @@
         <td class="mdl-data-table__cell--non-numeric"><%= user.email %></td>
         <td class="mdl-data-table__cell--non-numeric"><%= user.password %></td>
         <td class="mdl-data-table__cell--non-numeric"><%= link_to user.homepage, user.homepage %></td>
-        <% if can? :manage, user %>
         <td class="mdl-data-table__cell--non-numeric"><%= link_to 'Show', user, class: 'mdl-button mdl-js-button mdl-js-ripple-effect' %></td>
+        <% if can? :manage, user %>
         <td class="mdl-data-table__cell--non-numeric"><%= link_to 'Edit', edit_user_path(user), class: 'mdl-button mdl-js-button mdl-js-ripple-effect'  %></td>
         <td class="mdl-data-table__cell--non-numeric"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'mdl-button mdl-js-button mdl-js-ripple-effect'  %></td>
         <% end %>
