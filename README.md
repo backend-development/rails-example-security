@@ -28,3 +28,22 @@ Then fix it.
 Now all tests should be green.
 
 See https://backend-development.github.io/security.html#slide-6
+
+## 3. Authentication
+
+This app does not encrypt passwords and does not
+check if passwords are weak.
+
+Write an integration test that tries to 
+create a user with password '12345678'.
+
+This should fail.
+
+Use the `pwned` gem to check passwords before
+they are stored.
+
+Now all tests should be green.
+
+See https://backend-development.github.io/security.html#slide-13
+
+
