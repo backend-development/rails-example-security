@@ -2,13 +2,30 @@
 
 <h1>All Users</h1>
 
+<%= form_tag(users_path, method: :get, local: true, class: 'margin-bottom-40') do %>
+  
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <%= text_field_tag :query, params[:query], id: 'query',  class: "mdl-textfield__input"  %>
+    <label class="mdl-textfield__label" for="query">Suche nach Usern</label>
+  </div>
+
+  
+  <%= submit_tag "Suche", class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+
+<% end %>
+
+
+<div class="margin-bottom-40">
+<p>Just so you know: you searched for <kbd><%= @sql_query %></kbd>
+</div>
+
+
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
   <thead>
     <tr>
       <th class="mdl-data-table__cell--non-numeric">Name</th>
       <th class="mdl-data-table__cell--non-numeric">Email</th>
       <th class="mdl-data-table__cell--non-numeric">Password</th>
-      <th class="mdl-data-table__cell--non-numeric">Admin</th>
       <th class="mdl-data-table__cell--non-numeric">Homepage</th>
       <% if can? :manage, User %>
       <th colspan="3"></th>
@@ -22,7 +39,6 @@
         <td class="mdl-data-table__cell--non-numeric"><%= user.name %></td>
         <td class="mdl-data-table__cell--non-numeric"><%= user.email %></td>
         <td class="mdl-data-table__cell--non-numeric"><%= user.password %></td>
-        <td class="mdl-data-table__cell--non-numeric"><%= user.admin ? true : false %></td>
         <td class="mdl-data-table__cell--non-numeric"><%= link_to user.homepage, user.homepage %></td>
         <% if can? :manage, user %>
         <td class="mdl-data-table__cell--non-numeric"><%= link_to 'Show', user, class: 'mdl-button mdl-js-button mdl-js-ripple-effect' %></td>

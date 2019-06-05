@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    if params[:query]
+      @users = User.where("name LIKE '%#{params[:query]}%'")
+    end
+    @sql_query = @users.to_sql
   end
 
   # GET /users/1
